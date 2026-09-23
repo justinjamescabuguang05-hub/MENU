@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CreScent - Coffee & Pastries</title>
+
+    <link rel="stylesheet" href="style.css">\
+<script>
+
+let cart = [];
+
+function addItem() {
+
+    let food = document.getElementById("foodChoice");
+    let quantity = Number(document.getElementById("foodQuantity").value);
+
+    let name = food.value;
+    let price = Number(food.options[food.selectedIndex].getAttribute("data-price"));
+
+    let item = cart.find(x => x.name == name);
+
+    if (item) {
+        item.quantity += quantity;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            quantity: quantity
+        });
+    }
+
+    showCart();
+}
+
+
+function showCart() {
+
+    let list = document.getElementById("cartItems");
+    let total = 0;
+
+    list.innerHTML = "";
+
+    cart.forEach(function(item, i) {
+
+        let price = item.price * item.quantity;
+        total += price;
+
+        list.innerHTML +=
+            item.name + " x " + item.quantity +
+            " = ₱" + price +
+            " <button onclick='removeItem(" + i + ")'>Remove</button><br><br>";
+
+    });
+
+    if (cart.length == 0) {
+        list.innerHTML = "No items added yet.";
+    }
+
+    document.getElementById("totalPrice").innerHTML = total;
+}
+
+
+function removeItem(i) {
+
+    cart.splice(i, 1);
+    showCart();
+
+}
+
+
+function placeOrder() {
+
+    if (cart.length == 0) {
+        alert("Please add an item first!");
+        return;
+    }
+
+    document.getElementById("order-message").innerHTML =
+        "Thank you! Your order has been placed.";
+
+}
+
+</script>
+</head>
+
+<body>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            CreScent<span>.</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="#home">Home</a>
+
+            <a href="#menu">Menu</a>
+
+            <a href="#about">About</a>
+
+            <a href="#contact">Contact</a>
+
+            <a href="index1.html" class="logout"
+   onclick="return confirm('Are you sure you want to log out?')">
+    LOG OUT
+</a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-text">
+                CREAMY SCENT COFFEE & PASTRIES
+            </div>
+
+            <h1>
+                Good Food
+                <span>Starts Here.</span>
+            </h1>
+
+            <p>
+                Discover delicious drinks and desserts
+                made through proper process. Enjoy
+                freshly prepared coffee, creamy matcha,
+                refreshing drinks, and delicious pastries
+                made to brighten your day.
+            </p>
+
+            <a href="#menu" class="button-class">
+                EXPLORE MENU
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= MENU ================= -->
+
+    <section id="menu" class="menu-section">
+
+        <h2>
+            Our Menu
+        </h2>
+
+        <p class="menu-subtitle">
+            At CreScent, we serve freshly prepared coffee,
+            creamy matcha, refreshing drinks, and delicious
+            pastries made to brighten your day.
+        </p>
+
+
+        <div class="food-container">
+
+
+            <!-- 01 STRAWBERRY MATCHA -->
+
+            <div class="food-card">
+
+                <div class="food-image">
+
+                    <img src="Strawberry Matcha.jpg"
+                         alt="Strawberry Matcha">
+
+                </div>
+
+                <div class="food-info">
+
+                    <div class="food-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Strawberry Matcha
+                    </h3>
+
+                    <p>
+                        A layered beverage made with sweet
+                        strawberry purée or syrup, milk,
+                        and whisked green tea matcha.
+                    </p>
+
+                    <span>
+                        ₱175
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 02 ICED MOCHA -->
+
+            <div class="food-card">
+
+                <div class="food-image">
+
+                    <img src="Iced Mocha.jpg"
+                         alt="Iced Mocha">
+
+                </div>
+
+                <div class="food-info">
+
+                    <div class="food-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Iced Mocha
+                    </h3>
+
+                    <p>
+                        A cold coffee drink made with espresso,
+                        chocolate sauce, cold milk, and ice.
+                    </p>
+
+                    <span>
+                        ₱175
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 03 FRENCH HOT CHOCOLATE -->
+
+            <div class="food-card">
+
+                <div class="food-image">
+
+                    <img src="Creamy French Hot Chocolate.jpg"
+                         alt="Creamy French Hot Chocolate">
+
+                </div>
+
+                <div class="food-info">
+
+                    <div class="food-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Creamy French Hot Chocolate
+                    </h3>
+
+                    <p>
+                        A dense and velvety chocolate drink
+                        made by melting real dark chocolate
+                        into warm milk.
+                    </p>
+
+                    <span>
+                        ₱175
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 04 PUMPKIN SPICE -->
+
+            <div class="food-card">
+
+                <div class="food-image">
+
+                    <img src="Pumpkin Spice.jpg"
+                         alt="Pumpkin Spice">
+
+                </div>
+
+                <div class="food-info">
+
+                    <div class="food-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Pumpkin Spice
+                    </h3>
+
+                    <p>
+                        A warm and aromatic blend of sweet
+                        baking spices with a comforting flavor.
+                    </p>
+
+                    <span>
+                        ₱80
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 05 CINNAMON ROLL ICED LATTE -->
+
+            <div class="food-card">
+
+                <div class="food-image">
+
+                    <img src="Cinnamon Roll Iced Latte.jpg"
+                         alt="Cinnamon Roll Iced Latte">
+
+                </div>
+
+                <div class="food-info">
+
+                    <div class="food-number">
+                        05
+                    </div>
+
+                    <h3>
+                        Cinnamon Roll Iced Latte
+                    </h3>
+
+                    <p>
+                        A dessert-inspired cold coffee drink
+                        with a sweet cinnamon roll flavor.
+                    </p>
+
+                    <span>
+                        ₱95
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 06 MOCHA COFFEE -->
+
+            <div class="food-card">
+
+                <div class="food-image">
+
+                    <img src="mocha coffee.jpg"
+                         alt="Mocha Coffee">
+
+                </div>
+
+                <div class="food-info">
+
+                    <div class="food-number">
+                        06
+                    </div>
+
+                    <h3>
+                        Mocha Coffee
+                    </h3>
+
+                    <p>
+                        A chocolate-flavored coffee combining
+                        bold espresso, rich chocolate, and
+                        velvety milk.
+                    </p>
+
+                    <span>
+                        ₱150                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 07 BLUEBERRY MUFFIN -->
+
+            <div class="food-card">
+
+                <div class="food-image">
+
+                    <img src="Blueberry Muffin.jpg"
+                         alt="Blueberry Muffin">
+
+                </div>
+
+                <div class="food-info">
+
+                    <div class="food-number">
+                        07
+                    </div>
+
+                    <h3>
+                        Blueberry Muffin
+                    </h3>
+
+                    <p>
+                        A soft and tender muffin filled with
+                        juicy blueberries and a sweet,
+                        cakey crumb.
+                    </p>
+
+                    <span>
+                        ₱130
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 08 MATCHA GREEN TEA CAKE -->
+
+            <div class="food-card">
+
+                <div class="food-image">
+
+                    <img src="Matcha Green Tea Cake.jpg"
+                         alt="Matcha Green Tea Cake">
+
+                </div>
+
+                <div class="food-info">
+
+                    <div class="food-number">
+                        08
+                    </div>
+
+                    <h3>
+                        Matcha Green Tea Cake
+                    </h3>
+
+                    <p>
+                        A light and tender cake flavored with
+                        finely ground matcha and delicate
+                        sweetness.
+                    </p>
+
+                    <span>
+                        ₱95
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 09 STRAWBERRY CAKE -->
+
+            <div class="food-card">
+
+                <div class="food-image">
+
+                    <img src="Strawberry cake.jpg"
+                         alt="Strawberry Cake">
+
+                </div>
+
+                <div class="food-info">
+
+                    <div class="food-number">
+                        09
+                    </div>
+
+                    <h3>
+                        Strawberry Cake
+                    </h3>
+
+                    <p>
+                        A delicious baked dessert that uses
+                        strawberries as its main flavor.
+                    </p>
+
+                    <span>
+                        ₱95
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+  <!-- Checkout Section -->
+<section class="checkout">
+
+    <h2>Ready to Order?</h2>
+    <p>Choose your favorite items and place your order with us!</p>
+
+    <div class="checkout-box">
+
+        <h3>Place Your Order</h3>
+
+        <label>Your Name:</label>
+        <input type="text" id="customerName" placeholder="Enter your name">
+
+        <label>Phone Number:</label>
+        <input type="text" id="phoneNumber" placeholder="Enter your phone number">
+
+        <label>Delivery Location:</label>
+        <input type="text" id="location" placeholder="Enter your address">
+
+
+        <!-- ADD ITEMS -->
+
+        <label>Choose Your Order:</label>
+
+        <select id="foodChoice">
+
+            <option value="Strawberry Matcha" data-price="175">
+                Strawberry Matcha - ₱175
+            </option>
+
+            <option value="Iced Mocha" data-price="175">
+                Iced Mocha - ₱175
+            </option>
+
+            <option value="Creamy French Hot Chocolate" data-price="100">
+                Creamy French Hot Chocolate - ₱100
+            </option>
+
+            <option value="Pumpkin Spice" data-price="80">
+                Pumpkin Spice - ₱80
+            </option>
+
+            <option value="Cinnamon Roll Iced Latte" data-price="95">
+                Cinnamon Roll Iced Latte - ₱95
+            </option>
+
+            <option value="Mocha Coffee" data-price="175">
+                Mocha Coffee - ₱175
+            </option>
+
+            <option value="Blueberry Muffin" data-price="130">
+                Blueberry Muffin - ₱130
+            </option>
+
+            <option value="Matcha Green Tea Cake" data-price="95">
+                Matcha Green Tea Cake - ₱95
+            </option>
+
+            <option value="Strawberry Cake" data-price="95">
+                Strawberry Cake - ₱95
+            </option>
+
+        </select>
+
+
+        <label>Quantity:</label>
+
+        <input
+            type="number"
+            id="foodQuantity"
+            min="1"
+            value="1"
+        >
+
+
+        <button type="button" onclick="addItem()">
+            Add Item
+        </button>
+
+
+        <!-- CART -->
+
+        <div class="order-list">
+
+            <h4>Your Order:</h4>
+
+            <div id="cartItems">
+                No items added yet.
+            </div>
+
+            <h3>
+                Total: ₱<span id="totalPrice">0</span>
+            </h3>
+
+        </div>
+
+
+        <label>Payment Method:</label>
+
+        <select id="paymentMethod">
+
+            <option>Cash on Delivery</option>
+
+            <option>GCash</option>
+
+            <option>Credit / Debit Card</option>
+
+        </select>
+
+
+        <button
+            type="button"
+            onclick="placeOrder()"
+        >
+            Place Order
+        </button>
+
+
+        <p id="order-message"></p>
+
+    </div>
+
+</section>
+    </div>
+</section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about" class="about">
+
+        <div class="about-content">
+
+            <div class="small-text">
+                ABOUT CRESCENT
+            </div>
+
+            <h2>
+                Creamy Scent.
+                <span>Good Moments.</span>
+            </h2>
+
+            <p>
+                Explore our delicious selection of handcrafted
+                drinks and freshly made pastries, from creamy
+                matcha and rich coffee to sweet cakes and muffins.
+            </p>
+
+            <p>
+                Every item is carefully prepared to give you
+                a comforting taste in every sip and bite.
+                Take a moment, enjoy your favorite treat,
+                and make every visit a little sweeter.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <footer id="contact">
+
+        <div class="footer-content">
+
+            <h2>
+                CreScent<span>.</span>
+            </h2>
+
+            <p>
+                Creamy Scent Coffee & Pastries.
+            </p>
+
+            <div class="contact-details">
+
+                <p>📞 0917 456 7890</p>
+
+                <p>📧 crescentscoffee@gmail.com</p>
+
+                <p>📘 Facebook: Crescent Coffee & Pastries</p>
+
+                <p>📷 Instagram: @crescentscoffee</p>
+
+                <p>🎵 TikTok: @crescentscoffee</p>
+
+                <p>
+                    📍 123 Coffee Street,
+                    Quezon City, Philippines
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 CreScent Coffee & Pastries.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+        <div class="nav-links">   
+
+</div>
+
+    </footer>
+
+
+
+    <script src="java.js"></script>
+
+</body>
+
+</html>

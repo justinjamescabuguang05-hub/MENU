@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cresent - Sign Up</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111111;
+            color: white;
+        }
+
+        .signup-container {
+            width: 90%;
+            max-width: 1100px;
+            min-height: 650px;
+
+            margin: 50px auto;
+
+            display: flex;
+
+            background: #1b1b1b;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        /* LEFT SIDE */
+
+        .signup-left {
+            width: 50%;
+            padding: 60px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 50px;
+        }
+
+        .logo span {
+            color: #888888;
+        }
+
+        .signup-left h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .signup-left p {
+            color: #999999;
+            margin-bottom: 30px;
+        }
+
+        .input-box {
+            margin-bottom: 18px;
+        }
+
+        .input-box label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 14px;
+            color: #cccccc;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 15px;
+
+            border: 1px solid #444444;
+            border-radius: 8px;
+
+            background: #252525;
+            color: white;
+
+            outline: none;
+        }
+
+        .input-box input:focus {
+            border-color: white;
+        }
+
+        .signup-button {
+            display: block;
+
+            width: 100%;
+
+            padding: 15px;
+
+            margin-top: 10px;
+
+            background: white;
+            color: black;
+
+            text-align: center;
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .signup-button:hover {
+            background: #cccccc;
+            transform: translateY(-2px);
+        }
+
+        .login-text {
+            text-align: center;
+            margin-top: 25px;
+
+            color: #888888;
+        }
+
+        .login-text a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* RIGHT SIDE */
+
+        .signup-right {
+            width: 50%;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.35),
+                    rgba(0, 0, 0, 0.75)
+                ),
+                url("images.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: flex-end;
+
+            padding: 50px;
+        }
+
+        .image-text h2 {
+            font-size: 45px;
+            margin: 0 0 10px 0;
+        }
+
+        .image-text p {
+            color: #dddddd;
+            line-height: 1.6;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .signup-container {
+                flex-direction: column;
+                margin: 20px auto;
+            }
+
+            .signup-left {
+                width: 100%;
+                padding: 40px;
+            }
+
+            .signup-right {
+                width: 100%;
+                min-height: 300px;
+            }
+
+            .signup-left h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="signup-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="signup-left">
+
+            <div class="logo">
+                Cresent<span>.</span>
+            </div>
+
+            <h1>Create Account</h1>
+
+            <p>
+                Join Cresent and start your journey with us.
+            </p>
+
+            <form>
+
+                <div class="input-box">
+                    <label>Username</label>
+
+                    <input
+                        type="text"
+                        placeholder="Enter your username"
+                    >
+                </div>
+
+                <div class="input-box">
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                    >
+                </div>
+
+                <div class="input-box">
+                    <label>Password</label>
+
+                    <input
+                        type="password"
+                        placeholder="Create a password"
+                    >
+                </div>
+
+                <div class="input-box">
+                    <label>Confirm Password</label>
+
+                    <input
+                        type="password"
+                        placeholder="Confirm your password"
+                    >
+                </div>
+
+                <a href="index.html" class="signup-button">
+                    CREATE ACCOUNT
+                </a>
+
+            </form>
+
+            <div class="login-text">
+                Already have an account?
+                <a href="index.html">Log In</a>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="signup-right">
+
+            <div class="image-text">
+
+                <h2>Welcome.</h2>
+
+                <p>
+                    Discover something new and make
+                    your experience unforgettable.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

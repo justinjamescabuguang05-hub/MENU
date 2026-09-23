@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>CreScent - Login</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #111111;
+            color: white;
+
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        /* LOGIN BOX */
+
+        .login-box {
+            width: 950px;
+            height: 580px;
+
+            background-color: #1b1b1b;
+
+            display: flex;
+
+            border: 1px solid #292929;
+            border-radius: 8px;
+
+            overflow: hidden;
+        }
+
+
+        /* LEFT SIDE */
+
+        .left {
+            width: 50%;
+
+            padding: 55px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            font-size: 22px;
+
+            font-weight: bold;
+
+            margin-bottom: 55px;
+
+            color: white;
+        }
+
+        .logo span {
+            color: #c89b6d;
+        }
+
+
+        /* SMALL TEXT */
+
+        .small-title {
+            color: #777777;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 12px;
+        }
+
+
+        /* LOGIN TITLE */
+
+        h2 {
+            font-size: 35px;
+
+            margin-bottom: 10px;
+
+            color: white;
+        }
+
+        .description {
+            color: #777777;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* INPUTS */
+
+        input {
+            width: 100%;
+
+            padding: 14px;
+
+            margin-bottom: 15px;
+
+            background-color: #222222;
+
+            color: white;
+
+            border: 1px solid #333333;
+
+            border-radius: 5px;
+
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #c89b6d;
+        }
+
+        input::placeholder {
+            color: #666666;
+        }
+
+
+        /* BUTTONS */
+
+        .buttons {
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 10px;
+        }
+
+        .button-class {
+            display: inline-block;
+
+            text-decoration: none;
+
+            text-align: center;
+
+            padding: 12px 25px;
+
+            border-radius: 5px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        /* LOGIN BUTTON */
+
+        .login-button {
+            background-color: white;
+
+            color: #111111;
+        }
+
+        .login-button:hover {
+            background-color: #c89b6d;
+
+            color: white;
+        }
+
+
+        /* SIGN UP BUTTON */
+
+        .signup-button {
+            background-color: transparent;
+
+            color: white;
+
+            border: 1px solid #555555;
+        }
+
+        .signup-button:hover {
+            background-color: #333333;
+        }
+
+
+        /* BOTTOM TEXT */
+
+        .small-text {
+            color: #555555;
+
+            font-size: 10px;
+
+            margin-top: 50px;
+        }
+
+
+        /* RIGHT SIDE */
+
+        .right {
+            width: 50%;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .right img {
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+
+        /* DARK IMAGE OVERLAY */
+
+        .right::after {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+
+        /* IMAGE TEXT */
+
+        .image-text {
+            position: absolute;
+
+            z-index: 2;
+
+            bottom: 45px;
+
+            left: 40px;
+
+            right: 40px;
+        }
+
+        .image-text h3 {
+            font-size: 28px;
+
+            margin-bottom: 8px;
+        }
+
+        .image-text p {
+            color: #dddddd;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            body {
+                padding: 20px;
+            }
+
+            .login-box {
+                width: 100%;
+
+                height: auto;
+
+                flex-direction: column;
+            }
+
+            .left {
+                width: 100%;
+
+                padding: 40px;
+            }
+
+            .right {
+                width: 100%;
+
+                height: 250px;
+            }
+
+            .logo {
+                margin-bottom: 35px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="login-box">
+
+
+        <!-- ================= LEFT SIDE ================= -->
+
+        <div class="left">
+
+
+            <div class="logo">
+                CreScent<span>.</span>
+            </div>
+
+
+            <div class="small-title">
+                COFFEE & PASTRIES
+            </div>
+
+
+            <h2>
+                Welcome Back.
+            </h2>
+
+
+            <p class="description">
+                Log in to explore our freshly prepared
+                coffee, creamy matcha, refreshing drinks,
+                and delicious pastries.
+            </p>
+
+
+            <form>
+
+
+                <input
+                    type="text"
+                    placeholder="Username"
+                >
+
+
+                <input
+                    type="password"
+                    placeholder="Password"
+                >
+
+
+                <div class="buttons">
+
+
+                    <a
+                        href="home.html"
+                        class="button-class login-button"
+                    >
+                        LOG IN
+                    </a>
+
+
+                    <a
+                        href="sign up.html"
+                        class="button-class signup-button"
+                    >
+                        SIGN UP
+                    </a>
+
+
+                </div>
+
+
+            </form>
+
+
+            <p class="small-text">
+                Creamy Scent Coffee & Pastries
+            </p>
+
+
+        </div>
+
+
+
+        <!-- ================= RIGHT SIDE ================= -->
+
+        <div class="right">
+
+
+            <img
+                src="images.jpg"
+                alt="CreScent Coffee"
+            >
+
+
+            <div class="image-text">
+
+                <h3>
+                    Good Food.
+                </h3>
+
+                <p>
+                    Good moments start with a
+                    comforting cup of coffee.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
